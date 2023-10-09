@@ -6,6 +6,7 @@ namespace Database\Seeders;
 use App\Models\Club;
 use App\Models\Player;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
