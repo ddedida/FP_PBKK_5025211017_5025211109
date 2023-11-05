@@ -18,5 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/club', [ClubController::class, 'index']);
+Route::get('/routingtest', function () {
+    echo "Routing Test for Unit Testing";
+});
 
+Route::get('/club', [ClubController::class, 'index']);
