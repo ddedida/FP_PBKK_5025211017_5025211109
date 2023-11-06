@@ -22,4 +22,11 @@ Route::get('/routingtest', function () {
     echo "Routing Test for Unit Testing";
 });
 
+Route::get('/json-test', function () {
+    return response()->json([
+        'name' => 'Dewangga',
+        'updated' => true,
+    ]);
+});
+
 Route::get('/club', [ClubController::class, 'index']);

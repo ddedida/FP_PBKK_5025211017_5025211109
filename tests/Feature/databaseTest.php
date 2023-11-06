@@ -6,7 +6,7 @@ use Tests\TestCase;
 use App\Models\Club;
 use Database\Seeders\DatabaseSeeder;
 
-class databaseTest extends TestCase
+class DatabaseTest extends TestCase
 {
     public function test_seeder()
     {
