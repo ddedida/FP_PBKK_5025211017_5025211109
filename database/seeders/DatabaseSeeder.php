@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Club::factory(25)->create();
-        Player::factory(50)->create();
+        //Club::factory(25)->create();
+        Player::factory(100)->create();
     }
 }

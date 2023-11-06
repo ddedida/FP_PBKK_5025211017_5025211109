@@ -22,7 +22,7 @@ class PlayerFactory extends Factory
             'position' => $this->faker->randomElement(['back', 'striker', 'midfield']),
             'nasionality' => $this->faker->state(),
             'datebirth' => $this->faker->date(),
-            'age' => $this->faker->randomNumber(),
+            'age' => $this->faker->numberBetween(20,39),
             'height'  => $this->faker->numberBetween(160,200),
             'backnumber' => $this->faker->numberBetween(0,100),
             'appearance' => $this->faker->randomNumber(),
