@@ -19,6 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/routingtest', function () {
+    echo "Routing Test for Unit Testing";
+});
+
 Route::get('/club', [ClubController::class, 'index']);
 
 Route::get('/player',[PlayerController::class, 'index']);
