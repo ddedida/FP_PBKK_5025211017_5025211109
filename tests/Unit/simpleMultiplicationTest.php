@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 
-class simpleMultiplicationTest extends TestCase
+class SimpleMultiplicationTest extends TestCase
 {
     public function test_multiplication_of_two_number(): void
     {

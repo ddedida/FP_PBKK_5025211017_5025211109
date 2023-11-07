@@ -9,6 +9,6 @@ class RoutingTest extends TestCase
 {
     public function test_example(): void
     {
-        $this->get("/routingtest")->assertStatus(200);
+        $this->get("/club")->assertStatus(200);
     }
 }
