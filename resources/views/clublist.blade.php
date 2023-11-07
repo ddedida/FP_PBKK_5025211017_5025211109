@@ -115,14 +115,6 @@
             <tr>
               <td>{{ $loop->iteration }}</td>
               <td>{{ $club->clubName }}</td>
-              <td>{{ $club->played }}</td>
-              <td>{{ $club->won }}</td>
-              <td>{{ $club->lose }}</td>
-              <td>{{ $club->draw }}</td>
-              <td>{{ $club->gf }}</td>
-              <td>{{ $club->ga }}</td>
-              <td>{{ $club->gd }}</td>
-              <td>{{ $club->point }}</td>
             </tr>
             @endforeach
           </tbody>

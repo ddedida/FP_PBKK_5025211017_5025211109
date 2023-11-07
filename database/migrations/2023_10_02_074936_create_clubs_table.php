@@ -16,18 +16,9 @@ return new class extends Migration
         Schema::create('clubs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('clubName');
+            $table->string('teamName');
+            $table->string('homebase');
             $table->string('city');
-            $table->integer('played');
-            $table->integer('won');
-            $table->integer('lose');
-            $table->integer('draw');
-            $table->integer('ga');
-            $table->integer('gf');
-            $table->integer('gd');
-            $table->integer('point');
-            $table->integer('position');
-            $table->date('since');
         });
     }
 
