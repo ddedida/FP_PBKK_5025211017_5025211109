@@ -14,7 +14,7 @@ class JsonTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertJson([
-            'updated' => true,
+            'name' => 'Dewangga',
         ]);
     }
 }

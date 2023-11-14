@@ -16,6 +16,7 @@ use App\Http\Controllers\PlayerController;
 */
 
 Route::get('/', function () {
+    \App\Jobs\Jobs1::dispatch();
     return view('welcome');
 });
 
