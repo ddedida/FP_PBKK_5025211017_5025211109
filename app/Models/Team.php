@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Country extends Model
+class Team extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'country_name',
+        'team_name',
+        'homebase',
+        'city'
     ];
 }

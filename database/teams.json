@@ -1,0 +1,122 @@
+[
+    {
+        "team_id": 1,
+        "team_name": "Arsenal",
+        "homebase": "Emirates Stadium",
+        "city": "London"
+    },
+    {
+        "team_id": 2,
+        "team_name": "Aston Villa",
+        "homebase": "Villa Park",
+        "city": "Birmingham"
+    },
+    {
+        "team_id": 3,
+        "team_name": "Bournemouth",
+        "homebase": "Vitality Stadium",
+        "city": "Bournemouth"
+    },
+    {
+        "team_id": 4,
+        "team_name": "Brighton",
+        "homebase": "Amex Stadium",
+        "city": "Falmer"
+    },
+    {
+        "team_id": 5,
+        "team_name": "Burnley",
+        "homebase": "Turf Moor",
+        "city": "Burnley"
+    },
+    {
+        "team_id": 6,
+        "team_name": "Brentford",
+        "homebase": "Brentford Community Stadium",
+        "city": "Brentford"
+    },
+    {
+        "team_id": 7,
+        "team_name": "Chelsea",
+        "homebase": "Stamford Bridge",
+        "city": "London"
+    },
+    {
+        "team_id": 8,
+        "team_name": "Crystal Palace",
+        "homebase": "Selhurst Park",
+        "city": "London"
+    },
+    {
+        "team_id": 9,
+        "team_name": "Everton",
+        "homebase": "Goodison Park",
+        "city": "Liverpool"
+    },
+    {
+        "team_id": 10,
+        "team_name": "Fulham",
+        "homebase": "Craven Cottage",
+        "city": "London"
+    },
+    {
+        "team_id": 11,
+        "team_name": "Liverpool",
+        "homebase": "Anfield",
+        "city": "Liverpool"
+    },
+    {
+        "team_id": 12,
+        "team_name": "Luton Town",
+        "homebase": "Kenilworth Road",
+        "city": "Luton"
+    },
+    {
+        "team_id": 13,
+        "team_name": "Manchester City",
+        "homebase": "Etihad Stadium",
+        "city": "Manchester"
+    },
+    {
+        "team_id": 14,
+        "team_name": "Manchester United",
+        "homebase": "Old Trafford",
+        "city": "Manchester"
+    },
+    {
+        "team_id": 15,
+        "team_name": "Newcastle",
+        "homebase": "St. James' Park",
+        "city": "Newcastle"
+    },
+    {
+        "team_id": 16,
+        "team_name": "Nottingham Forest",
+        "homebase": "City Ground",
+        "city": "Nottingham"
+    },
+    {
+        "team_id": 17,
+        "team_name": "Sheffield United",
+        "homebase": "Bramall Lane",
+        "city": "Sheffield"
+    },
+    {
+        "team_id": 18,
+        "team_name": "Totenham",
+        "homebase": "Tottenham Hotspur Stadium",
+        "city": "London"
+    },
+    {
+        "team_id": 19,
+        "team_name": "West Ham",
+        "homebase": "London Stadium",
+        "city": "London"
+    },
+    {
+        "team_id": 20,
+        "team_name": "Wolves",
+        "homebase": "Molineux Stadium",
+        "city": "Wolverhampton"
+    }
+]
