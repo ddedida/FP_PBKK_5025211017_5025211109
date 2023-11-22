@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PlayerpostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,3 +34,4 @@ Route::get('/json-test', function () {
 Route::get('/club', [ClubController::class, 'index']);
 
 Route::get('/player',[PlayerController::class, 'index']);
+
