@@ -8,26 +8,26 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
+        // Coach Table
         Schema::create('coaches', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('coachName');
+            $table->string('coach_name');
             $table->date('date_of_birth');
-            $table->foreignId('country_id');
+            $table->unsignedBigInteger('country_id');
+            $table->unsignedBigInteger('team_id');
+            $table->foreign('country_id')->references('id')->on('countries');
+            $table->foreign('team_id')->references('id')->on('teams');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
-    public function down()
+    public function down(): void
     {
         Schema::dropIfExists('coaches');
     }

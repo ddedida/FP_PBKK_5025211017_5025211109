@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PlayerController;
-use App\Http\Controllers\PlayerpostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +18,7 @@ use App\Http\Controllers\PlayerpostController;
 Route::get('/', function () {
     return view('welcome');
 });
+
 
 Route::get('/routingtest', function () {
     echo "Routing Test for Unit Testing";

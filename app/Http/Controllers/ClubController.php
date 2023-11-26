@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Club;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class ClubController extends Controller
@@ -10,7 +11,7 @@ class ClubController extends Controller
     //
     public function index(){
         return view('clublist',[
-            "clubs" => Club::orderBy('point', 'desc')->get()
+            "clubs" => Team::orderBy('point', 'desc')->get()
         ]);
     }
 }

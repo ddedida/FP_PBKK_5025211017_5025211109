@@ -3,12 +3,11 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Faker\Generator as Faker;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Player>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Coach>
  */
-class PlayerFactory extends Factory
+class CoachFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,10 +17,8 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            'player_name' => fake()->name($gender = 'male'),
+            'coach_name' => fake()->name($gender = 'male'),
             'date_of_birth' => fake()->date(),
-            'height' => rand(160, 200),
-            'position_id' => rand(1, 4),
             'team_id' => rand(1, 20),
             'country_id' => rand(1, 246)
         ];
