@@ -12,4 +12,9 @@ class Season extends Model
     protected $fillable = [
         'season'
     ];
+
+    public function teamstatistic()
+    {
+        return $this->hasMany(Teamstatistic::class, 'id', 'season_id');
+    }
 }

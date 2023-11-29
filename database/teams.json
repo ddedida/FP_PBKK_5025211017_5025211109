@@ -85,7 +85,7 @@
     },
     {
         "team_id": 15,
-        "team_name": "Newcastle",
+        "team_name": "Newcastle United",
         "homebase": "St. James' Park",
         "city": "Newcastle"
     },
@@ -103,7 +103,7 @@
     },
     {
         "team_id": 18,
-        "team_name": "Totenham",
+        "team_name": "Tottenham Hotspur",
         "homebase": "Tottenham Hotspur Stadium",
         "city": "London"
     },
