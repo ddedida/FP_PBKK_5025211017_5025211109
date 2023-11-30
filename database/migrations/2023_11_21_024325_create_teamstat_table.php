@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         // Team Statistic Table
-        Schema::create('team_statistics', function (Blueprint $table) {
+        Schema::create('teamstatistics', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->integer('win');
@@ -21,8 +21,8 @@ return new class extends Migration
             $table->integer('goal_for');
             $table->integer('goal_againts');
             $table->integer('goal_diff');
-            $table->integer('goal_played');
-            $table->integer('goal_points');
+            $table->integer('played');
+            $table->integer('points');
             $table->unsignedBigInteger('season_id');
             $table->unsignedBigInteger('team_id');
             $table->foreign('season_id')->references('id')->on('seasons');
