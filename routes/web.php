@@ -35,3 +35,6 @@ Route::get('/club', [ClubController::class, 'index']);
 
 Route::get('/player',[PlayerController::class, 'index']);
 
+Route::get('/match', function(){
+    return view('match');
+});
