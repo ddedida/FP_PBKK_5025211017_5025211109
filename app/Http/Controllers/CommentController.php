@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
+use App\Models\User;
 use App\Models\Comment;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -10,10 +13,13 @@ class CommentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(User $user)
     {
         //
-        return view('user.comment');
+        return view('user.comment',[
+            'comments' => Comment::all(),
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -28,9 +34,20 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Game $game)
     {
         //
+        $validatedData = $request->validate([
+            'body' => 'required'
+        ]);
+
+        $validatedData['game_id'] = $game->id;
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+
+        Comment::create($validatedData);
+
+
+        return redirect('comment');
 
     }
 

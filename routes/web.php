@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ComentController;
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GameController;
@@ -45,6 +46,8 @@ Route::put('/edit-game/{game}', [GameController::class, 'editGame'])->middleware
 Route::delete('/delete-game/{game}', [GameController::class, 'deleteGame'])->middleware(['auth', 'verified', 'admin'])->name('delete-game');
 
 
-Route::resource('/comment', CommentController::class);
+Route::get('/comment/{game}', [ComentController::class, 'create'])->name('comment');
+Route::post('/comment/{game}', [ComentController::class, 'store']);
+Route::delete('comment/{comment}', [ComentController::class, 'delete']);
 
 Route::resource('/player', PlayerController::class);

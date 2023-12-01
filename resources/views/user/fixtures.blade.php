@@ -80,7 +80,11 @@
                             <div class="flex items-center text-base">
                                 <p>{{ date('d F Y', strtotime($game->date)) }}</p>
                             </div>
+                            <a href="/comment/{{ $game->id }}" class="bg-primary-limegreen text-primary-darkblue px-4 py-2 text-base font-semibold rounded-md w-fit">
+                                Detail
+                            </a>
                         </div>
+                  
                     </div>
                 @endif
             @endforeach
