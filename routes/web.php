@@ -1,12 +1,15 @@
 <?php
 
-use App\Http\Controllers\GameController;
-use App\Http\Controllers\MatchController;
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\GameController;
+use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MatchController;
+use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StandingController;
-use App\Http\Controllers\TeamController;
+use App\Models\Game;
 
 // Laravel Breeze
 Route::get('/dashboard', function () {
@@ -40,3 +43,8 @@ Route::post('/create-game', [GameController::class, 'createGame'])->middleware([
 Route::get('/edit-game/{game}', [GameController::class, 'showEditGame'])->middleware(['auth', 'verified', 'admin'])->name('edit-game');
 Route::put('/edit-game/{game}', [GameController::class, 'editGame'])->middleware(['auth', 'verified', 'admin'])->name('edit-game');
 Route::delete('/delete-game/{game}', [GameController::class, 'deleteGame'])->middleware(['auth', 'verified', 'admin'])->name('delete-game');
+
+
+Route::resource('/comment', CommentController::class);
+
+Route::resource('/player', PlayerController::class);

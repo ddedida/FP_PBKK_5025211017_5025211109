@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Club;
 use App\Models\Player;
+use App\Models\Teamstatistic;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -25,6 +26,17 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         //Club::factory(25)->create();
-        Player::factory(100)->create();
+        // Player::factory(100)->create();
+        $this->call([
+            AdminSeeder::class,
+            CoachSeeder::class,
+            CountrySeeder::class,
+            PlayerSeeder::class,
+            PositionSeeder::class,
+            SeasonSeeder::class,
+            TeamSeeder::class,
+            TeamstatisticSeeder::class,
+        ]);
+
     }
 }

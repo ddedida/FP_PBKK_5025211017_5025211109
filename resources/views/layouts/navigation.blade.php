@@ -21,7 +21,11 @@
                     <x-nav-link :href="route('game')" :active="request()->routeIs('game')">
                         {{ __('Games') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('player.index')" :active="request()->routeIs('player.index')">
+                        {{ __('Players') }}
+                    </x-nav-link>
                 </div>
+
             </div>
 
             <!-- Settings Dropdown -->
