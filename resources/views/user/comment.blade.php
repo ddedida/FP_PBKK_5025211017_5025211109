@@ -48,15 +48,15 @@
                         </svg>
                         Reply
                     </button>
-                    <button type="button"
+                    <a href="/comment/{{ $comment->id }}/edit"
                         class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
                         Edit
-                    </button>
+                    </a>
                     <div>
                         <form action="/comment/{{$comment->id}}" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type="button"
+                            <button 
                             class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400 font-medium">
                             Remove
                             </button> 

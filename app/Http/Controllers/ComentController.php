@@ -38,9 +38,32 @@ class ComentController extends Controller
         //return $validatedData;
     }
 
-    public function delete(Comment $comment)
+    public function delete($id)
     {
-        Comment::destroy($comment->id);
-        return redirect()->route('comment');
+        $comment=Comment::where('id',$id)->first();
+        $comment->delete();
+        return redirect()->back();
+    }
+
+    public function edit(Comment $comment)
+    {
+        return view('user.editcomment',[
+            'target' => $comment,
+            'comments' => Comment::where('user_id', auth()->user()->id)->get()
+        ]);  
+    }
+
+    public function update(Request $request,Comment $comment)
+    {
+
+        $validatedData = $request->validate([
+            'body' => 'required'
+        ]);
+
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData['game_id'] = $comment->game_id;
+        $validatedData['user_id'] = auth()->user()->id;
+        Comment::where('id', $comment->id)->update($validatedData);
+        return redirect()->route('comment', ['game' => $comment->game_id]);
     }
 }

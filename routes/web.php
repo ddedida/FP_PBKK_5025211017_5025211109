@@ -49,5 +49,7 @@ Route::delete('/delete-game/{game}', [GameController::class, 'deleteGame'])->mid
 Route::get('/comment/{game}', [ComentController::class, 'create'])->name('comment');
 Route::post('/comment/{game}', [ComentController::class, 'store']);
 Route::delete('comment/{comment}', [ComentController::class, 'delete']);
+Route::get('/comment/{comment}/edit',[ComentController::class, 'edit']); 
+Route::put('comment/{comment}',[ComentController::class, 'update']);   
 
 Route::resource('/player', PlayerController::class);
