@@ -13,12 +13,16 @@ class PlayerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
-        return view('admin.player.index',[
-            'players' => Player::all()
-        ]);
+        $teamId = $request->input('season');
+        if ($request->input()) {
+            $players = Player::where('team_id', $teamId)->get();
+        } else {
+            $players = Player::all();
+        }
+        
+        return view('admin.player.index', ['players' => $players, 'teams' => Team::all(), 'teamId' => $teamId]);
     }
 
     /**

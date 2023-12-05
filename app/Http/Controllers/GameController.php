@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Game;
 use App\Models\Season;
+use App\Models\Comment;
+use App\Jobs\UpdateTables;
 use Illuminate\Http\Request;
 use App\Models\Teamstatistic;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +14,15 @@ class GameController extends Controller
 {
     public function index()
     {
-        $teamstats = Teamstatistic::with('team')->orderBy('team_id', 'asc')->get();
+        $latestSeason = Season::orderBy('id', 'desc')->first();
+        $teamstats = ($latestSeason->id) ? Teamstatistic::where('season_id', $latestSeason->id)
+            ->with('team')
+            ->orderByDesc('points')
+            ->orderByDesc('goal_diff')
+            ->orderBy('team_id')
+            ->get() : [];
+        
+        // dd($teamstats);
 
         return view('admin.create-game', ['teamstats' => $teamstats]);
     }
@@ -42,12 +52,17 @@ class GameController extends Controller
     }
 
     // Show Game
-    public function showGame()
+    public function showGame(Request $request)
     {
         $games = DB::table('games')->orderBy('date', 'asc')->get();
-        $teams = Teamstatistic::with('team')->get();
+        $latestSeason = Season::orderBy('id', 'desc')->first();
+        $seasonId = $request->input('season', $latestSeason->id);
+        $teamstats = ($seasonId) ? Teamstatistic::where('season_id', $seasonId)
+            ->with('team')
+            ->get() : [];
+        $seasons = Season::all();
 
-        return view('admin.game', ['games' => $games, 'teams' => $teams]);
+        return view('admin.game', ['games' => $games, 'teamstats' => $teamstats, 'seasons' => $seasons, 'seasonId' => $seasonId]);
     }
 
     // Delete Game
@@ -62,18 +77,8 @@ class GameController extends Controller
     public function showEditGame(Game $game)
     {
         $teamstats = Teamstatistic::with('team')->orderBy('team_id', 'asc')->get();
-
-        $homeTeam = DB::table('games')
-            ->join('teamstatistics', 'games.home_teamstatistic_id', '=', 'teamstatistics.id')
-            ->join('teams', 'teamstatistics.team_id', '=', 'teams.id')->get();
-
-        $awayTeam = DB::table('games')
-            ->join('teamstatistics', 'games.away_teamstatistic_id', '=', 'teamstatistics.id')
-            ->join('teams', 'teamstatistics.team_id', '=', 'teams.id')->get();
         
-        // dd($homeTeam);
-
-        return view('admin.edit-game', ['games' => $game, 'teamstats' => $teamstats, 'homeTeam' => $homeTeam, 'awayTeam' => $awayTeam]);
+        return view('admin.edit-game', ['games' => $game, 'teamstats' => $teamstats]);
     }
 
     // Edit Game
@@ -104,62 +109,19 @@ class GameController extends Controller
     }
 
     // Update Table
-    public function updateTable()
+    public function updateTable($seasonId)
     {
-        $games = Game::all();
-        $teamstats = Teamstatistic::all();
-
-        $gameCount = $games->count();
-
-        // dd($gameCount);
-
-        foreach ($teamstats as $teamstat) {
-            $field['win'] = 0;
-            $field['draw'] = 0;
-            $field['lose'] = 0;
-            $field['goal_for'] = 0;
-            $field['goal_againts'] = 0;
-            $field['goal_diff'] = 0;
-            $field['played'] = 0;
-            $field['points'] = 0;
-            
-            foreach ($games as $game) {
-                if($game->played == 1) {
-                    if ($teamstat->id == $game->home_teamstatistic_id) {
-                        $field['goal_for'] += $game->home_goal;
-                        $field['goal_againts'] += $game->away_goal;
-                        $field['played'] += 1;
-                        if ($game->home_goal > $game->away_goal) {
-                            $field['win'] += 1;
-                            $field['points'] += 3;
-                        } else if ($game->home_goal < $game->away_goal) {
-                            $field['lose'] += 1;
-                        } else {
-                            $field['draw'] += 1;
-                            $field['points'] += 1;
-                        }
-                    } else if ($teamstat->id == $game->away_teamstatistic_id) {
-                        $field['goal_for'] += $game->away_goal;
-                        $field['goal_againts'] += $game->home_goal;
-                        $field['played'] += 1;
-                        if ($game->home_goal < $game->away_goal) {
-                            $field['win'] += 1;
-                            $field['points'] += 3;
-                        } else if ($game->home_goal > $game->away_goal) {
-                            $field['lose'] += 1;
-                        } else {
-                            $field['draw'] += 1;
-                            $field['points'] += 1;
-                        }
-                    }
-                }
-            }
-
-            $field['goal_diff'] = $field['goal_for'] - $field['goal_againts'];
-
-            $teamstat->update($field);
-        }
+        dispatch(new UpdateTables($seasonId));
 
         return redirect()->route('game');
+    }
+
+    // Show Detail
+    public function showDetail(Game $game)
+    {
+        $teamstats = Teamstatistic::with('team')->orderBy('team_id', 'asc')->get();
+        $comments = Comment::where('game_id', $game->id)->get();
+
+        return view('user.detail', ['games' => $game, 'teamstats' => $teamstats, 'comments' => $comments]);
     }
 }

@@ -22,7 +22,8 @@ class TeamSeeder extends Seeder
                 [
                     'team_name' => $team['team_name'],
                     'homebase' => $team['homebase'],
-                    'city' => $team['city']
+                    'city' => $team['city'],
+                    'image' => $team['image'],
                 ]
             );
         }

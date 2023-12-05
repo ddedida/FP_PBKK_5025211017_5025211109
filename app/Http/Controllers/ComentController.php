@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Redirect;
 
 class ComentController extends Controller
 {
-    //
     public function create(Game $game)
     {
-        //
-        return view('user.comment',[
-            'game' => $game,
-            'comments' => Comment::where('user_id', auth()->user()->id)->get()
-        ]);
+        if (auth()->user()) {
+            return view('user.comment', [
+                'game' => $game,
+                'comments' => Comment::where('game_id', $game->id)->get()
+            ]);
+        }
+        return redirect()->back();
     }
 
     public function store(Request $request, Game $game)
@@ -26,36 +27,38 @@ class ComentController extends Controller
             'body' => 'required'
         ]);
 
-         $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200, '...');
         $validatedData['game_id'] = $game->id;
         $validatedData['user_id'] = auth()->user()->id;
 
         Comment::create($validatedData);
 
-
-        return redirect()->route('comment', ['game' => $game->id]);
-
-        //return $validatedData;
+        // return redirect()->route('comment', ['game' => $game->id]);
+        return redirect()->back();
     }
 
     public function delete($id)
     {
-        $comment=Comment::where('id',$id)->first();
-        $comment->delete();
+        if (auth()->user()->id == Comment::find($id)->user_id || auth()->user()->is_admin == 1) {
+            $comment = Comment::where('id', $id)->first();
+            $comment->delete();
+        }
         return redirect()->back();
     }
 
     public function edit(Comment $comment)
     {
-        return view('user.editcomment',[
-            'target' => $comment,
-            'comments' => Comment::where('user_id', auth()->user()->id)->get()
-        ]);  
+        if (auth()->user()->id == $comment->user_id || auth()->user()->is_admin == 1) {
+            return view('user.editcomment',[
+                'target' => $comment,
+                'comments' => Comment::where('user_id', auth()->user()->id)->get()
+            ]);
+        }
+        return redirect()->back();
     }
 
     public function update(Request $request,Comment $comment)
     {
-
         $validatedData = $request->validate([
             'body' => 'required'
         ]);
