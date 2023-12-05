@@ -18,7 +18,7 @@ class CountrySeeder extends Seeder
         $countries = json_decode($countriesJson, true);
 
         foreach ($countries as $country) {
-            Country::updateOrcreate([
+            Country::updateOrCreate([
                 'country_name' => $country,
             ]);
         }

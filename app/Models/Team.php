@@ -15,7 +15,8 @@ class Team extends Model
     protected $fillable = [
         'team_name',
         'homebase',
-        'city'
+        'city',
+        'image',
     ];
 
     public function teamstatistic()

@@ -3,120 +3,140 @@
         "team_id": 1,
         "team_name": "Arsenal",
         "homebase": "Emirates Stadium",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30Arsenal.png"
     },
     {
         "team_id": 2,
         "team_name": "Aston Villa",
         "homebase": "Villa Park",
-        "city": "Birmingham"
+        "city": "Birmingham",
+        "image": "2023-11-30AstonVilla.png"
     },
     {
         "team_id": 3,
         "team_name": "Bournemouth",
         "homebase": "Vitality Stadium",
-        "city": "Bournemouth"
+        "city": "Bournemouth",
+        "image": "2023-11-30Bournemouth.png"
     },
     {
         "team_id": 4,
         "team_name": "Brighton",
         "homebase": "Amex Stadium",
-        "city": "Falmer"
+        "city": "Falmer",
+        "image": "2023-11-30Brighton.png"
     },
     {
         "team_id": 5,
         "team_name": "Burnley",
         "homebase": "Turf Moor",
-        "city": "Burnley"
+        "city": "Burnley",
+        "image": "2023-11-30Burnley.png"
     },
     {
         "team_id": 6,
         "team_name": "Brentford",
         "homebase": "Brentford Community Stadium",
-        "city": "Brentford"
+        "city": "Brentford",
+        "image": "2023-11-30Brentford.png"
     },
     {
         "team_id": 7,
         "team_name": "Chelsea",
         "homebase": "Stamford Bridge",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30Chelsea.png"
     },
     {
         "team_id": 8,
         "team_name": "Crystal Palace",
         "homebase": "Selhurst Park",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30CrystalPalace.png"
     },
     {
         "team_id": 9,
         "team_name": "Everton",
         "homebase": "Goodison Park",
-        "city": "Liverpool"
+        "city": "Liverpool",
+        "image": "2023-11-30Everton.png"
     },
     {
         "team_id": 10,
         "team_name": "Fulham",
         "homebase": "Craven Cottage",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30Fulham.png"
     },
     {
         "team_id": 11,
         "team_name": "Liverpool",
         "homebase": "Anfield",
-        "city": "Liverpool"
+        "city": "Liverpool",
+        "image": "2023-11-30Liverpool.png"
     },
     {
         "team_id": 12,
         "team_name": "Luton Town",
         "homebase": "Kenilworth Road",
-        "city": "Luton"
+        "city": "Luton",
+        "image": "2023-11-30LutonTown.png"
     },
     {
         "team_id": 13,
         "team_name": "Manchester City",
         "homebase": "Etihad Stadium",
-        "city": "Manchester"
+        "city": "Manchester",
+        "image": "2023-11-30ManchesterCity.png"
     },
     {
         "team_id": 14,
         "team_name": "Manchester United",
         "homebase": "Old Trafford",
-        "city": "Manchester"
+        "city": "Manchester",
+        "image": "2023-11-30ManchesterUnited.png"
     },
     {
         "team_id": 15,
         "team_name": "Newcastle United",
         "homebase": "St. James' Park",
-        "city": "Newcastle"
+        "city": "Newcastle",
+        "image": "2023-11-30NewcastleUnited.png"
     },
     {
         "team_id": 16,
         "team_name": "Nottingham Forest",
         "homebase": "City Ground",
-        "city": "Nottingham"
+        "city": "Nottingham",
+        "image": "2023-11-30NottinghamForest.png"
     },
     {
         "team_id": 17,
         "team_name": "Sheffield United",
         "homebase": "Bramall Lane",
-        "city": "Sheffield"
+        "city": "Sheffield",
+        "image": "2023-11-30SheffieldUnited.png"
     },
     {
         "team_id": 18,
         "team_name": "Tottenham Hotspur",
         "homebase": "Tottenham Hotspur Stadium",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30TottenhamHotspur.png"
     },
     {
         "team_id": 19,
         "team_name": "West Ham",
         "homebase": "London Stadium",
-        "city": "London"
+        "city": "London",
+        "image": "2023-11-30WestHam.png"
     },
     {
         "team_id": 20,
         "team_name": "Wolves",
         "homebase": "Molineux Stadium",
-        "city": "Wolverhampton"
+        "city": "Wolverhampton",
+        "image": "2023-11-30Wolves.png"
     }
 ]

@@ -27,8 +27,4 @@ class Coach extends Model
     {
         return $this->belongsTo(Country::class, 'country_id', 'id');
     }
-
-    public function country(){
-        return $this->belongsTo(Country::class);
-    }
 }

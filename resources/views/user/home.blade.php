@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home</title>
+    <link rel="icon" href="{{ asset("storage/league-logo.png")}}" />
     @vite('resources/css/app.css')
 </head>
 <body>
@@ -24,11 +25,12 @@
 
     {{-- Team Section --}}
     <div class="w-full h-fit py-4 flex justify-center gap-10 bg-primarybw-white">
-        @foreach ($teams as $team)
+        @foreach ($teamstats as $teamstat)
         @php
-            $teamname = $team->team_name;
+            // $teamname = $teamstat->team_name;
+            $image = $teamstat->team->image;
         @endphp
-        <img src="{{ asset("storage/team/$teamname.png") }}" class="max-h-8">
+        <img src="{{ asset("storage/team-logo/$image") }}" class="max-h-8">
         @endforeach
     </div>
 

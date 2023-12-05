@@ -14,28 +14,37 @@
                 <div class="px-10 py-6 text-gray-900">
                     <div class="flex flex-col gap-6">
                         <div class="flex text-sm justify-between">
-                            @foreach ($homeTeam as $hometeam)
-                                @php
-                                    $stadium = $hometeam->homebase;
-                                    $city = $hometeam->city;
-                                @endphp
+                            @php
+                                $homebase = null;
+                                $city = null;
+                            @endphp
+                            @foreach ($teamstats as $hometeam)
+                            @if ($games->home_teamstatistic_id == $hometeam->id)
+                                    @php
+                                        $homebase = $hometeam->team->homebase;
+                                        $city = $hometeam->team->city;
+                                    @endphp
+                                @endif
                             @endforeach
                             <div class="flex justify-center items-center gap-2">
                                 <x-map-pin></x-map-pin>
-                                <p>{{ $stadium }}, {{ $city }}</p>
+                                <p>{{ $homebase }}, {{ $city }}</p>
                             </div>
                             <div class="flex justify-center items-center gap-2">
                                 <p>{{ date('d F Y', strtotime($games->date)) }}</p>
                             </div>
                         </div>
                         <div class="flex justify-center gap-8 text-xl font-semibold">
-                            @foreach ($homeTeam as $hometeam)
+                            @foreach ($teamstats as $hometeam)
                                 @if ($hometeam->id == $games->home_teamstatistic_id)
+                                    @php
+                                        $image = $hometeam->team->image;
+                                    @endphp
                                     <div class="flex">
                                         <div class="flex flex-col items-center gap-4">
-                                            <img src="{{ asset("storage/team/$hometeam->team_name.png") }}" class="max-h-16">
+                                            <img src="{{ asset("storage/team-logo/$image") }}" class="max-h-16">
                                             <div class="w-40 h-fit flex justify-center text-center">
-                                                <p>{{ $hometeam->team_name }}</p>
+                                                <p>{{ $hometeam->team->team_name }}</p>
                                             </div>
                                         </div>
                                         <div class="mt-3">
@@ -53,8 +62,11 @@
                             <div class="mt-4">
                                 <p>:</p>
                             </div>
-                            @foreach ($awayTeam as $awayteam)
+                            @foreach ($teamstats as $awayteam)
                                 @if ($awayteam->id == $games->away_teamstatistic_id)
+                                    @php
+                                        $image = $awayteam->team->image;
+                                    @endphp
                                     <div class="flex">
                                         <div class="mt-3">
                                             <div class="bg-primary-limegreen text-primary-darkblue w-8 flex justify-center rounded-md py-1">
@@ -66,9 +78,9 @@
                                             </div>
                                         </div>
                                         <div class="flex flex-col items-center gap-4">
-                                            <img src="{{ asset("storage/team/$awayteam->team_name.png") }}" class="max-h-16">
+                                            <img src="{{ asset("storage/team-logo/$image") }}" class="max-h-16">
                                             <div class="w-40 h-fit flex justify-center text-center">
-                                                <p>{{ $awayteam->team_name }}</p>
+                                                <p>{{ $awayteam->team->team_name }}</p>
                                             </div>
                                         </div>
                                     </div>
